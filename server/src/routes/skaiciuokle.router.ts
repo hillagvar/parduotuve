@@ -3,6 +3,6 @@ import { SkaiciuokleController } from "../controllers/skaiciuokle.controller.js"
 
 const skaiciuokleRouter = express.Router();
 
-skaiciuokleRouter.get("/skaiciuoti", SkaiciuokleController.apskaiciuoti);
+skaiciuokleRouter.post("/skaiciuoti", SkaiciuokleController.apskaiciuoti);
 
 export { skaiciuokleRouter };
