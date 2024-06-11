@@ -17,7 +17,7 @@ export class ProductTableComponent {
 
   constructor(private productService: ProductService) {
     this.productService.getProducts().subscribe((data) => {
-      console.log('lsfsd');
+      
       this.products = data;
 
     });
