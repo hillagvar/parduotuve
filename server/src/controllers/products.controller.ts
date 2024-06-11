@@ -10,6 +10,14 @@ export class ProductsController {
         res.json(result);
     }
 
+    static async getProduct(req: any, res: any) {
+        
+        const sql = "SELECT * FROM products WHERE id=?";
+        const [result] = await pool.query<Product[]>(sql, [req.params.id]);
+
+        res.json(result[0]);
+    }
+
     static async insert(req: any, res: any){
         const sql = "INSERT INTO products (name, price) VALUES ( ?, ? )";
         await pool.query(sql, [req.body.name, req.body.price]);
