@@ -7,7 +7,7 @@ productsRouter.get("/", ProductsController.getAll);
 productsRouter.get("/:id", ProductsController.getProduct);
 productsRouter.post("/", ProductsController.insert);
 productsRouter.put("/", ProductsController.update);
-productsRouter.delete("/", ProductsController.delete);
+productsRouter.delete("/:id", ProductsController.delete);
 
 
 export {productsRouter};

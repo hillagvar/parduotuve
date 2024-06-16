@@ -15,9 +15,10 @@
                     <td>{{ i+1 }}</td>
                     <td>{{ product.name }}</td>
                     <td>{{ product.price }}</td>
-                    <td>{{ product.id }}</td>
+
                     <td>
-                        <a class="btn btn-success" [routerLink]="['/products', product.id]">Redaguoti</a>
+                        <a class="btn btn-success" [routerLink]="['/products', product.id]">Redaguoti</a> &nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-danger" (click)="deleteProduct(product.id!)">Ištrinti</button>
                     </td>
                 </tr>
             </tbody>

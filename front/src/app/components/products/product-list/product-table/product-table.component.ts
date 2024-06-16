@@ -15,12 +15,25 @@ export class ProductTableComponent {
 
   public products : Product[] = []
 
-  constructor(private productService: ProductService) {
+  private loadProducts() {
     this.productService.getProducts().subscribe((data) => {
       
       this.products = data;
 
     });
+
+  }
+
+  constructor(private productService: ProductService) {
+    this.loadProducts();
+  }
+
+ 
+
+  public deleteProduct(id: number) {
+    this.productService.deleteProduct(id).subscribe((data)=> {
+      this.loadProducts();
+    })
   }
   
 

@@ -24,6 +24,12 @@ export class ProductService {
   public updateProduct(product: Product) {
      return this.http.put("http://localhost:4999/products", product);
   }
+
+  public deleteProduct(id: number) {
+    return this.http.delete("http://localhost:4999/products/"+id);
+  }
+
+ 
 }
 
 
