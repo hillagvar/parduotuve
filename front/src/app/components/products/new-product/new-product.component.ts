@@ -22,7 +22,7 @@ export class NewProductComponent {
   }
 
   public productSubmit(form: NgForm) {
-    console.log(form.form.value);
+    // console.log(form.form.value);
     this.productService.addProduct(form.form.value).subscribe({
       next:  (data) => {
       this.router.navigate(["products", "list"]);

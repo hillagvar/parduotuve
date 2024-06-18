@@ -6,13 +6,19 @@
         <form (ngSubmit)="updateProduct(f)" #f="ngForm">
             <div class="mb-3">
                 <label for="" class="form-label">Pavadinimas</label>
-                <input type="text" class="form-control" name="name" value="" ngModel [(ngModel)]="name">
+                <input type="text" class="form-control" name="name" value="" ngModel [(ngModel)]="name" minLength="2" maxLength="64" required #inputName="ngModel" [class.is-invalid]="!inputName.valid && inputName.touched">
+                <div class="helper-block " *ngIf="!inputName.valid && inputName.touched">
+                    Pavadinimas yra privalomas.
+                </div>
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Kaina</label>
-                <input type="number" class="form-control" name="price" value="" ngModel [(ngModel)]="price">
+                <input type="number" class="form-control" name="price" value="" ngModel [(ngModel)]="price" required #inputPrice="ngModel" [class.is-invalid]="!inputPrice.valid && inputPrice.touched">
+                <div class="helper-block " *ngIf="!inputPrice.valid && inputPrice.touched">
+                    Kaina yra privaloma.
+                </div>
             </div>
-            <button class="btn btn-success" type="submit">Atnaujinti</button>
+            <button class="btn btn-success" type="submit" [disabled]="!inputPrice.valid || !inputName.valid">Atnaujinti</button>
         </form>
     </div>
 

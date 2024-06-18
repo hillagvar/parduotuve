@@ -39,6 +39,7 @@ export class ProductsController {
             return res.status(400).json({
                 "text": "Neįvestas pavadinimas"
             });
+            
         }
 
         const sql = "INSERT INTO products (name, price) VALUES ( ?, ? )";
