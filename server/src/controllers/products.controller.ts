@@ -46,6 +46,7 @@ export class ProductsController {
 
         try {
             await pool.query(sql, [req.body.name, req.body.price]);
+            
             res.json({
                 "success" : true
             });

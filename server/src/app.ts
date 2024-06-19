@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import { corsHeaders } from "./middlewares/cors.middleware";
 import { productsRouter } from "./routes/products.router";
 import { authRouter } from "./routes/auth.router";
+import { authMiddleware } from "./middlewares/auth.middleware";
 
 const app: Application = express();
 
@@ -15,6 +16,8 @@ app.use(express.json());
 
 //i visus response headerius ikeliami cors nurodymai
 app.use(corsHeaders);
+
+// app.get("/products",authMiddleware);
 
 //uzkraunamas route failas (kur nurodyti skaiciuokles url)
 app.use("/skaiciuokle", skaiciuokleRouter);

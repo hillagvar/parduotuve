@@ -1,16 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   public getProducts() {
-    return this.http.get<Product[]>("http://localhost:4999/products");
+      return this.http.get<Product[]>("http://localhost:4999/products");
   }
 
   public addProduct(product: Product) {

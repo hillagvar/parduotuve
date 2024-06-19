@@ -38,7 +38,7 @@ export class AuthController {
 
         if (!passwordOk) {
             return res.status(400).json({
-                "text": "Neteisingas username arba el.pastas"
+                "text": "Neteisingas slaptazodis arba el.pastas"
             });
         }
 
@@ -54,9 +54,10 @@ export class AuthController {
         
 
         res.json({
-            "name": user.name,
+            "name": user.username,
             "email": user.email,
-            "token": token
+            "token": token,
+            "type": user.type
         });
     }
 }
