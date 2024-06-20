@@ -21,10 +21,7 @@ export class ErrorBlockComponent {
       setTimeout(() => {
         this.isError = false;
       }, 10000);
-<<<<<<< HEAD
-=======
 
->>>>>>> 0004e1dc5e8d16fc8fe880cf594b15d53bc97231
 
     })
 
