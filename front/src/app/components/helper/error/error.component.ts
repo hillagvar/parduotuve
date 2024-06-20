@@ -13,7 +13,11 @@ export class ErrorComponent {
   @Input()
   public isError: boolean = false;
 
-  @Input()
+    @Input()
   public text: string = "";
+
+  public onCloseError() {
+    this.isError = false;
+  }
 
 }

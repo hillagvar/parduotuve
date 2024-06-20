@@ -10,14 +10,20 @@ import { ErrorService } from '../../../services/error.service';
   styleUrl: './error-block.component.css'
 })
 export class ErrorBlockComponent {
-  public isError : boolean = true;
+  public isError : boolean = false;
   public errorText: string = "";
 
   constructor (private errorService: ErrorService) {
     this.errorService.errorEmitter.subscribe((text) => {
+      this.isError = true;
       this.errorText = text;
+      //po 10 sekundziu klaida paslepiama
+      setTimeout(() => {
+        this.isError = false;
+      }, 10000);
 
     })
+
   }
 
 }

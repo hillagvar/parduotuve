@@ -46,4 +46,16 @@ export class AuthService {
   public isLoggedIn() {
     return (this.user != null && this.user.token != null);
   }
+
+  public canEdit() {
+    return (this.user != null && (this.user.type == 0 || this.user.type == 1));
+  }
+
+  public canEditUsers() {
+    return (this.user != null && this.user.type == 0);
+  }
+
+  public canViewData() {
+    return this.isLoggedIn();
+  }
 }
