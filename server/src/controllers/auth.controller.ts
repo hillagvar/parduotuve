@@ -11,7 +11,16 @@ export class AuthController {
 
         password = await bcrypt.hash(password, 12);
 
-        const sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+        let sql = "SELECT * FROM users WHERE email LIKE ?";
+        const [result] = await pool.query<User[]>(sql, [email]);
+
+        if (result.length != 0) {
+            return res.status(400).json({
+                "text": "Vartotojas su tokiu adresu jau egzistuoja"
+            })
+        }
+
+        sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
         await pool.query(sql, [username, email, password]);
 
         res.json({
